@@ -1,0 +1,265 @@
+/* Strandline, the site root: the harbour as it is at the visitor's own hour, then the game's field journal (Taccuino),
+   open on the dune: a spread on a wide screen, one leaf at a time on a phone. Colours from the game's palette (DESIGN.md),
+   images from real captures (tools/site_images.py); Literata and Atkinson Hyperlegible Next, self-hosted. */
+@font-face { font-family: "Literata"; src: url(fonts/literata.woff) format("woff"); font-weight: 400 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Literata"; src: url(fonts/literata-italic.woff) format("woff"); font-weight: 400 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Atkinson Hyperlegible Next"; src: url(fonts/atkinson-next.woff) format("woff"); font-weight: 400 700; font-display: swap; }
+
+:root {
+  --sand: #ead3a2; --sand-wet: #d3b67d; --soaked: #cfa96d; --sea: #458a9a; --sea-band: #9cc5cc; --sea-night: #1f4858;
+  --paper: #eee7d6; --card: #f7f5ee; --ink: #2a2118; --ink-soft: #514538; --veiled: #8c7d69; --note: #27604f;
+  --fg: var(--ink); --fg-soft: var(--ink-soft); --hint: var(--note);
+  --desk: var(--sand) url(img/sand.webp) 0 0 / 760px auto;
+  --serif: "Literata", "Iowan Old Style", Georgia, serif;
+  --sans: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  color-scheme: light;
+}
+/* Night: the tide has covered the shore, as after nine in the evening in the game. The book stays paper and ink. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fg: #efe8d8; --fg-soft: #cdc3ae; --hint: #93d3bb;
+    --desk: var(--sea-night) url(img/burin.svg) 0 0 / 420px 150px;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scrollbar-color: var(--veiled) transparent; }
+body { margin: 0; color: var(--fg); font: 18px/1.6 var(--serif); font-variant-numeric: oldstyle-nums; background: var(--desk); }
+img { max-width: 100%; height: auto; }
+::selection { background: var(--sea-band); color: var(--ink); }
+a { color: inherit; text-decoration-color: var(--hint); text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+a:hover { text-decoration-thickness: 2.5px; }
+:focus-visible { outline: 3px solid var(--hint); outline-offset: 3px; border-radius: 2px; }
+[hidden] { display: none !important; }
+html[data-lang="it"] [lang="en"], html[data-lang="en"] [lang="it"] { display: none !important; }
+h1, h2, h3 { font-weight: 500; text-wrap: balance; }
+p { text-wrap: pretty; }
+.skip {
+  position: absolute; left: 16px; top: -60px; z-index: 9; padding: 12px 16px; background: var(--card); color: var(--ink);
+  font: 16px/1 var(--sans); border-radius: 2px;
+}
+.skip:focus { top: 12px; }
+.sr { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---------- Paper things: the brand and language tags, the luggage-tag way, the hung tags. ---------- */
+.paper { background: var(--card); color: var(--ink); box-shadow: 0 4px 10px rgb(20 18 14 / .28); border-radius: 2px; }
+.topline {
+  position: absolute; z-index: 2; inset: 0 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+  padding: 14px 16px 0;
+}
+.brand {
+  display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 10px; min-height: 48px;
+  font: 500 1.2rem/1 var(--serif); text-decoration: none; transform: rotate(-.8deg);
+}
+.mark { width: 30px; height: 30px; flex: none; }
+.lang { display: flex; padding: 0 6px; font: 15px/1 var(--sans); transform: rotate(.8deg); }
+.lang a { display: inline-flex; align-items: center; padding: 12px 10px; min-height: 48px; text-decoration-thickness: 1px; }
+.lang a[aria-current] { font-weight: 700; text-decoration: none; }
+
+/* The way: a luggage tag whose cut end points the way (the game's way back), hole and all. Before the Play link it is
+   only the tag, nothing to press. */
+.way {
+  position: relative; isolation: isolate; display: inline-flex; align-items: center; min-height: 56px; margin: 0;
+  padding: 12px 26px 12px 48px; font: 500 1.15rem/1.25 var(--serif); color: var(--ink); text-decoration: none;
+  transform: rotate(-.6deg); filter: drop-shadow(0 5px 6px rgb(42 33 24 / .28));
+}
+.way::before, .way::after { content: ""; position: absolute; z-index: -1; clip-path: polygon(20px 0, 100% 0, 100% 100%, 20px 100%, 0 50%); }
+.way::before { inset: 0; background: var(--ink); }
+.way::after {
+  inset: 1.3px 2.8px 2.8px 1.6px;
+  background: radial-gradient(circle at 22px 50%, var(--sand-wet) 0 4.5px, var(--ink-soft) 5px 6.2px, transparent 6.8px), var(--card);
+}
+a.way { transition: transform .3s cubic-bezier(.2, .8, .3, 1); }
+a.way:hover { transform: rotate(-.6deg) translateX(-4px); }
+
+/* ---------- Now: the harbour at the visitor's hour (now.js sets data-band; without it, the day). ---------- */
+.now {
+  position: relative; min-height: max(100svh, 560px); display: flex; align-items: flex-end; padding: 96px 16px 28px;
+  background: #9cc5cc center 42% / cover no-repeat;
+}
+.bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.bg picture { position: absolute; inset: 0; display: none; }
+.bg img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+:root[data-band="dawn"] .bg .h-dawn, :root[data-band="day"] .bg .h-day, :root[data-band="golden"] .bg .h-golden,
+:root[data-band="night"] .bg .h-night { display: block; }
+:root[data-band="night"] .now { background-color: #1f2f4a; }
+/* What the hour says, on a paper tag hung over the quay. */
+.say {
+  position: relative; width: min(100%, 36rem); padding: 20px 22px 24px; background: var(--paper); color: var(--ink);
+  border: 1.5px solid var(--veiled); border-radius: 2px; transform: rotate(.5deg); box-shadow: 0 14px 30px rgb(16 18 28 / .32);
+}
+@media (min-width: 900px) { .now { padding: 120px 7vw 9svh; } .say { padding: 26px 30px 30px; } }
+.clock { margin: 0; font: 15px/1.3 var(--sans); color: var(--ink-soft); min-height: 1.3em; }
+.hour { margin: 6px 0 12px; font-size: clamp(1.85rem, 3.2vw + .6rem, 3.1rem); line-height: 1.08; letter-spacing: -.015em; font-weight: 500; }
+.hour > span { display: none; }
+:root[data-band="dawn"] .hour .dawn, :root[data-band="day"] .hour .day, :root[data-band="golden"] .hour .golden,
+:root[data-band="night"] .hour .night { display: inline; }
+.say h1 { margin: 0 0 20px; font: 400 clamp(1.05rem, .4vw + 1rem, 1.25rem)/1.45 var(--serif); max-width: 34ch; }
+.say h1 strong { font-weight: 500; }
+.say .act { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
+.open-book { font: 16px/1.3 var(--sans); padding: 12px 0; }
+
+/* ---------- The journal: cloth, pages bowed into the gutter, one leaf or one spread in view. ---------- */
+.desk { padding: 56px 0 40px; }
+.book {
+  position: relative; margin: 0 auto; width: min(1200px, calc(100% - 64px)); padding: 14px;
+  background: radial-gradient(ellipse at 50% 50%, #4f95a4 40%, #3c7888 85%, #2f6372); border-radius: 2px;
+  box-shadow: 0 18px 40px rgb(20 16 10 / .35), 0 2px 0 #2b5a68;
+}
+.leaves {
+  display: flex; height: clamp(600px, calc(100svh - 150px), 860px); overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; background: var(--paper); color: var(--ink);
+}
+.leaves::-webkit-scrollbar { display: none; }
+@media (prefers-reduced-motion: no-preference) { .leaves { scroll-behavior: smooth; } }
+.page {
+  --pad: clamp(24px, 3.2vw, 52px);
+  position: relative; flex: 0 0 50%; padding: var(--pad); overflow-y: auto; scroll-snap-align: start;
+  background: linear-gradient(to left, rgb(42 33 24 / .09), transparent 8%);
+}
+.page:nth-child(even) { background: linear-gradient(to right, rgb(42 33 24 / .09), transparent 8%); scroll-snap-align: none; }
+@media (max-width: 899px) {
+  .desk { padding: 32px 0 28px; }
+  .book { width: auto; margin: 0 0 0 10px; padding: 12px 0 12px 12px; border-radius: 2px 0 0 2px; }
+  .leaves { height: max(560px, calc(100svh - 120px)); }
+  .page, .page:nth-child(even) { flex-basis: 100%; scroll-snap-align: start; background: linear-gradient(to right, rgb(42 33 24 / .09), transparent 6%); }
+}
+/* Turning pages: a folded corner at the foot of each outer page (the cloth shows where the corner was lifted), and a row of
+   beads under the book, one for each view, the one in sight filled. Without scripting none of it shows; the book still swipes. */
+.turn {
+  position: absolute; bottom: 14px; z-index: 2; width: 76px; height: 76px; padding: 0; border: 0; background: none; cursor: pointer;
+  color: var(--ink); -webkit-tap-highlight-color: transparent;
+}
+.turn-on { right: 14px; }
+.turn-back { left: 14px; transform: scaleX(-1); }
+.turn svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.turn .cut { fill: #3f7c8c; }
+.turn .flap { fill: var(--card); stroke: var(--ink-soft); stroke-width: 1.4; stroke-linejoin: round; filter: drop-shadow(-2px 3px 3px rgb(42 33 24 / .35)); transform-origin: 72% 72%; }
+.turn .arrow { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+@media (prefers-reduced-motion: no-preference) {
+  .turn .flap { transition: transform .25s cubic-bezier(.2, .8, .3, 1); }
+  .turn:hover:not(:disabled) .flap, .turn:focus-visible .flap { transform: scale(1.12); }
+}
+.turn:active:not(:disabled) .flap { transform: scale(1.18); }
+/* No page that way: the corner lies flat, only its fold line left, dashed. */
+.turn:disabled { cursor: default; }
+.turn:disabled .flap { fill: none; stroke-dasharray: 3 5; stroke-width: 1.6; filter: none; opacity: .5; transform: scale(.82); }
+.turn:disabled .cut { fill: none; }
+.turn:disabled .arrow { display: none; }
+.turn:focus-visible { outline: 3px solid var(--hint); outline-offset: -4px; border-radius: 4px; }
+.page { padding-bottom: calc(var(--pad) + 40px); }
+.leafing { display: flex; justify-content: center; align-items: center; gap: 4px 14px; margin: 14px auto 0; padding: 0 16px; flex-wrap: wrap; }
+.beads { display: flex; align-items: center; }
+.beads button { width: 44px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; -webkit-tap-highlight-color: transparent; }
+.beads button::before {
+  content: ""; width: 14px; height: 14px; box-sizing: border-box; border-radius: 52% 48% 55% 45% / 48% 54% 46% 52%;
+  border: 2px solid var(--fg); background: transparent;
+}
+.beads button[aria-current="page"]::before { background: var(--fg); transform: scale(1.25); }
+.beads button:hover::before { background: var(--fg-soft); }
+.beads button:focus-visible { outline: 3px solid var(--hint); outline-offset: -2px; border-radius: 8px; }
+.count { font: 15px var(--sans); color: var(--fg-soft); min-width: 4.5ch; text-align: center; font-variant-numeric: tabular-nums; }
+
+/* Type on the page. */
+.page h2 { margin: 6px 0 14px; font-size: clamp(1.6rem, 1.6vw + 1rem, 2.2rem); line-height: 1.12; }
+.page p { margin: 0 0 .8em; }
+.tav { margin: 0; font: 15px/1.3 var(--sans); color: var(--ink-soft); letter-spacing: .02em; }
+.hand { font-style: italic; color: var(--note); }
+.small { font: 16px/1.5 var(--sans); color: var(--ink-soft); }
+.title { margin: 9svh 0 6px; font-size: clamp(3rem, 5vw + 1rem, 5rem); line-height: 1.05; letter-spacing: -.02em; }
+.subtitle { font-style: italic; font-size: 1.25rem; color: var(--ink-soft); }
+.entry { max-width: 32ch; margin-top: 4svh; font-size: clamp(1.05rem, .4vw + .95rem, 1.2rem); }
+.page .way { margin-top: 3svh; }
+.foot { position: absolute; left: var(--pad); right: var(--pad); bottom: 18px; margin: 0; }
+
+/* ---------- Tav. I: a green glass under a heap of dry sand. Brush it away, tap to wet it (site.js). ---------- */
+.dig { position: relative; margin: 2svh auto 0; width: min(100%, 420px); }
+.bed { position: relative; aspect-ratio: 1; display: grid; place-items: center; --tile: 380px; }
+/* The dried water ring the game draws under a plate's find. */
+.ring { position: absolute; inset: 9%; border-radius: 47% 53% 50% 50% / 52% 48% 52% 48%;
+  background: radial-gradient(closest-side, rgb(207 169 109 / .30), rgb(207 169 109 / .18) 72%, rgb(150 110 60 / .24) 76%, transparent 80%); }
+.find { position: relative; grid-area: 1 / 1; width: 46%; transform: rotate(-12deg); }
+.find.wet { opacity: 0; }
+@media (prefers-reduced-motion: no-preference) { .find.wet { transition: opacity .9s cubic-bezier(.2, .8, .3, 1); } }
+.dig[data-state="wet"] .find.wet { opacity: 1; }
+.bed canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; cursor: crosshair; }
+.dig:not(.live) canvas, .dig:not(.live) .says { display: none; }
+.dig[data-state="dry"] canvas, .dig[data-state="wet"] canvas { opacity: 0; pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) { .dig canvas { transition: opacity .45s; } }
+.dig:not(.live) .find.wet { opacity: 1; }
+.dig:not(.live) .do { display: none; }
+.dig[data-state="dry"] .find.dry, .dig[data-state="wet"] .find { cursor: default; }
+/* Hints are words written in the damp sand (the game's hand note), not controls. */
+.says { margin: 6px 0 0; text-align: center; font: italic 1.1rem/1.35 var(--serif); color: #5a4630; min-height: 2.7em; }
+.says span[data-step] { display: none; }
+.dig[data-state="bury"] .says [data-step="bury"], .dig[data-state="dry"] .says [data-step="dry"], .dig[data-state="wet"] .says [data-step="wet"] { display: inline; }
+.do { display: block; margin: 4px auto 0; min-height: 48px; padding: 10px 18px; font: 16px/1.2 var(--sans); color: var(--ink);
+  background: var(--card); border: 1.5px solid var(--ink-soft); border-radius: 2px; cursor: pointer; }
+.do [data-step] { display: none; }
+.dig[data-state="bury"] .do [data-step="bury"], .dig[data-state="dry"] .do [data-step="dry"] { display: inline; }
+.dig[data-state="wet"] .do { display: none; }
+.plate-name { text-align: center; }
+.plate-name h3 { margin: 10px 0 2px; font-size: clamp(1.3rem, 1vw + 1rem, 1.6rem); line-height: 1.2; }
+.plate-name p { margin: 0 auto 6px; max-width: 34ch; }
+.dig.live:not([data-state="wet"]) .plate-name { visibility: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+  .dig.live .plate-name { transition: opacity .5s .9s, transform .5s .9s; }
+  .dig.live:not([data-state="wet"]) .plate-name { opacity: 0; transform: translateY(10px); }
+}
+
+/* A morning, as the hand wrote it. */
+.day { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 16px; max-width: 36ch; }
+.day b { display: block; font-weight: 500; font-size: 1.2rem; }
+.pinned { margin: 22px 0 0; width: min(46%, 190px); float: right; transform: rotate(2.2deg); }
+.pinned img, .snap img { display: block; width: 100%; border-radius: 2px; box-shadow: 0 8px 16px rgb(42 33 24 / .25); }
+@media (max-width: 899px) { .pinned { float: none; margin: 18px auto 0; width: min(58%, 210px); } }
+
+/* Tav. II: finds laid loose, each its own size, tilt and drop; never a grid. */
+.loose { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; gap: 4px 6px; }
+.loose li { display: grid; justify-items: center; gap: 2px; width: var(--w); margin-top: var(--y, 0); text-align: center; }
+.loose img { width: 100%; transform: rotate(var(--r, 0deg)); filter: drop-shadow(2px 4px 3px rgb(42 33 24 / .22)); }
+.loose span { font-style: italic; font-size: .9rem; line-height: 1.25; color: var(--ink-soft); }
+@media (max-width: 899px) { .loose li:nth-child(n+10) { display: none; } .loose li { width: calc(var(--w) * .82); } }
+/* Each find's size (the plate keeps their sizes relative), tilt and drop: set here, the page's CSP allows no inline style. */
+.loose li:nth-child(1) { --w:74px;--r:-8deg; }
+.loose li:nth-child(2) { --w:150px;--r:-14deg;--y:18px; }
+.loose li:nth-child(3) { --w:100px;--r:6deg;--y:-10px; }
+.loose li:nth-child(4) { --w:70px;--r:10deg;--y:24px; }
+.loose li:nth-child(5) { --w:84px;--r:24deg;--y:-6px; }
+.loose li:nth-child(6) { --w:122px;--r:-4deg;--y:10px; }
+.loose li:nth-child(7) { --w:66px;--y:30px; }
+.loose li:nth-child(8) { --w:128px;--r:-16deg;--y:-14px; }
+.loose li:nth-child(9) { --w:90px;--r:8deg;--y:14px; }
+.loose li:nth-child(10) { --w:80px;--r:28deg;--y:-4px; }
+.loose li:nth-child(11) { --w:80px;--r:-22deg;--y:20px; }
+.loose li:nth-child(12) { --w:104px;--r:12deg; }
+.more-finds { margin-top: 10px; text-align: right; }
+
+/* The jar, the room, the post: real captures on paper, tilted a little, never framed in wood. */
+.shot { margin: 18px auto 0; width: min(78%, 300px); }
+.shot img { display: block; width: 100%; max-height: 46svh; object-fit: contain; box-shadow: 0 8px 18px rgb(42 33 24 / .25); }
+.shot.l { transform: rotate(-1.6deg); }
+.shot.r { transform: rotate(1.8deg); }
+.shot figcaption { margin-top: 8px; font: italic 15px/1.3 var(--serif); color: var(--ink-soft); text-align: center; }
+.tally { display: block; margin: 12px auto 0; width: 150px; height: 34px; color: var(--ink-soft); }
+.bottle { width: 92px; margin: -30px 0 0 auto; transform: rotate(-14deg); display: block; }
+
+/* The last leaf: the night, and the way. */
+.last { display: flex; flex-direction: column; justify-content: center; }
+.last h2 { font-size: clamp(2rem, 2.6vw + 1rem, 3rem); }
+
+/* ---------- Questions and the foot: plain text on the dune (or the night sea). ---------- */
+.faq { max-width: 46rem; margin: 0 auto; padding: 48px 16px 24px; }
+.faq h2 { font-size: clamp(1.7rem, 1.4vw + 1.2rem, 2.3rem); margin: 0 0 18px; }
+.faq dl { margin: 0; }
+.faq dl > div { padding: 16px 0; border-top: 1.5px solid rgb(81 69 56 / .35); }
+.faq dt { font-weight: 500; font-size: 1.15rem; }
+.faq dd { margin: 4px 0 0; }
+footer { max-width: 46rem; margin: 0 auto; padding: 20px 16px 48px; font: 15px/1.6 var(--sans); color: var(--fg-soft); }
+footer .links { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+footer .links a { display: inline-flex; align-items: center; min-height: 48px; }
+footer p { margin: 0 0 6px; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .faq dl > div { border-top-color: var(--veiled); }
+}

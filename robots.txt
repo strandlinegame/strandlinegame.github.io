@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://strandlinegame.github.io/sitemap.xml

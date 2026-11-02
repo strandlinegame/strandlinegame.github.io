@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en" data-lang="en" data-band="day">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Nothing leaves this page: every file comes from this site, no cookies, no analytics; the only thing kept (in the browser) is the language chosen. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#458a9a" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1f4858" media="(prefers-color-scheme: dark)">
+<title>Strandline: a cozy beachcombing game for Android</title>
+<meta name="description" content="A calm, hand-drawn game for Android: every morning a Mediterranean shore to brush with one finger. Find sea glass, sherds and shells, and keep one in your field journal.">
+<meta property="og:title" content="Strandline: cozy beachcombing">
+<meta property="og:description" content="Every morning the sea leaves a new shore: brush the sand, wet the sea glass and keep one in your field journal. A calm, hand-drawn game for Android.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:url" content="https://strandlinegame.github.io/en/">
+<meta property="og:image:alt" content="The name Strandline on a paper tag, lying on the sand below a line of seaweed and the edge of the sea.">
+<meta name="twitter:image:alt" content="The name Strandline on a paper tag, lying on the sand below a line of seaweed and the edge of the sea.">
+<link rel="canonical" href="https://strandlinegame.github.io/en/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en",
+  "mainEntity": [
+    { "@type": "Question", "name": "What kind of game is Strandline?", "acceptedAnswer": { "@type": "Answer", "text": "A calm, hand-drawn game for Android phones. Every morning a Mediterranean shore arrives: you brush the sand with one finger, wet the sea glass, sherds and shells you find to see their true colour, and keep one a day in a field journal. The rest go into a jar that fills over fourteen mornings." } },
+    { "@type": "Question", "name": "When does Strandline come out?", "acceptedAnswer": { "@type": "Answer", "text": "Strandline is in a closed test among a few friends and will come to Google Play for Android phones. The day it is out, the link will be on this page." } },
+    { "@type": "Question", "name": "Which phones does it run on?", "acceptedAnswer": { "@type": "Answer", "text": "Android phones with Android 7.0 or later. There is no iPhone version for now." } },
+    { "@type": "Question", "name": "Does it cost anything?", "acceptedAnswer": { "@type": "Answer", "text": "It installs without paying. From the eighth morning an ad may appear once a day, when you close the journal, never while you brush or wet a find. \"Support the game\", a one-time purchase, removes ads for good." } },
+    { "@type": "Question", "name": "Does it need the internet?", "acceptedAnswer": { "@type": "Answer", "text": "It plays offline. The connection is for sending postcards and gifts to friends, for bottles and for ads." } },
+    { "@type": "Question", "name": "Which languages?", "acceptedAnswer": { "@type": "Answer", "text": "English and Italian." } }
+  ]
+}
+</script>
+<link rel="alternate" hreflang="it" href="https://strandlinegame.github.io/">
+<link rel="alternate" hreflang="en" href="https://strandlinegame.github.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://strandlinegame.github.io/">
+<meta property="og:site_name" content="Strandline">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://strandlinegame.github.io/img/og.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://strandlinegame.github.io/img/og.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["VideoGame", "MobileApplication"],
+  "name": "Strandline",
+  "url": "https://strandlinegame.github.io/",
+  "description": "A calm, hand-drawn beachcombing game for Android: every morning a new Mediterranean shore to brush with one finger, sea glass, sherds and shells to wet and read, one find a day kept in a field journal and the rest poured into a jar that fills over fourteen mornings.",
+  "image": "https://strandlinegame.github.io/img/og.jpg",
+  "screenshot": ["https://strandlinegame.github.io/img/s-en-shore.webp", "https://strandlinegame.github.io/img/s-en-tag.webp", "https://strandlinegame.github.io/img/s-en-journal.webp", "https://strandlinegame.github.io/img/s-en-porto.webp"],
+  "genre": ["Casual", "Cozy", "Collection"],
+  "keywords": "sea glass, beachcombing, cozy game, relaxing game, shells, Mediterranean, field journal, vetri di mare",
+  "gamePlatform": "Android",
+  "operatingSystem": "Android 7.0 or later",
+  "applicationCategory": "GameApplication",
+  "inLanguage": ["it", "en"],
+  "playMode": "SinglePlayer",
+  "isAccessibleForFree": true,
+  "author": { "@type": "Person", "name": "Jertlok" }
+}
+</script>
+<script src="/lang.js"></script>
+<script src="/now.js"></script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/literata.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<a class="skip" href="#taccuino"><span lang="it">Salta al taccuino</span><span lang="en">Skip to the journal</span></a>
+
+<header class="now" id="top">
+  <!-- The harbour: the game's own, drawn at 3x for big screens; only the visitor's hour is ever fetched (the others stay hidden, and lazy). -->
+  <div class="bg" aria-hidden="true">
+    <picture class="h-dawn">
+      <source media="(orientation: portrait)" type="image/avif" srcset="/img/porto-dawn-t1080.avif 1080w, /img/porto-dawn-t2160.avif 2160w" sizes="100vw">
+      <source media="(orientation: portrait)" type="image/webp" srcset="/img/porto-dawn-t1080.webp 1080w, /img/porto-dawn-t2160.webp 2160w" sizes="100vw">
+      <source type="image/avif" srcset="/img/porto-dawn-w1620.avif 1620w, /img/porto-dawn-w2520.avif 2520w, /img/porto-dawn-w3780.avif 3780w" sizes="100vw">
+      <img src="/img/porto-dawn-w1620.webp" srcset="/img/porto-dawn-w1620.webp 1620w, /img/porto-dawn-w2520.webp 2520w, /img/porto-dawn-w3780.webp 3780w" sizes="100vw" width="1620" height="1157" alt="" loading="lazy" decoding="async">
+    </picture>
+    <picture class="h-day">
+      <source media="(orientation: portrait)" type="image/avif" srcset="/img/porto-day-t1080.avif 1080w, /img/porto-day-t2160.avif 2160w" sizes="100vw">
+      <source media="(orientation: portrait)" type="image/webp" srcset="/img/porto-day-t1080.webp 1080w, /img/porto-day-t2160.webp 2160w" sizes="100vw">
+      <source type="image/avif" srcset="/img/porto-day-w1620.avif 1620w, /img/porto-day-w2520.avif 2520w, /img/porto-day-w3780.avif 3780w" sizes="100vw">
+      <img src="/img/porto-day-w1620.webp" srcset="/img/porto-day-w1620.webp 1620w, /img/porto-day-w2520.webp 2520w, /img/porto-day-w3780.webp 3780w" sizes="100vw" width="1620" height="1157" alt="" loading="lazy" decoding="async">
+    </picture>
+    <picture class="h-golden">
+      <source media="(orientation: portrait)" type="image/avif" srcset="/img/porto-golden-t1080.avif 1080w, /img/porto-golden-t2160.avif 2160w" sizes="100vw">
+      <source media="(orientation: portrait)" type="image/webp" srcset="/img/porto-golden-t1080.webp 1080w, /img/porto-golden-t2160.webp 2160w" sizes="100vw">
+      <source type="image/avif" srcset="/img/porto-golden-w1620.avif 1620w, /img/porto-golden-w2520.avif 2520w, /img/porto-golden-w3780.avif 3780w" sizes="100vw">
+      <img src="/img/porto-golden-w1620.webp" srcset="/img/porto-golden-w1620.webp 1620w, /img/porto-golden-w2520.webp 2520w, /img/porto-golden-w3780.webp 3780w" sizes="100vw" width="1620" height="1157" alt="" loading="lazy" decoding="async">
+    </picture>
+    <picture class="h-night">
+      <source media="(orientation: portrait)" type="image/avif" srcset="/img/porto-night-t1080.avif 1080w, /img/porto-night-t2160.avif 2160w" sizes="100vw">
+      <source media="(orientation: portrait)" type="image/webp" srcset="/img/porto-night-t1080.webp 1080w, /img/porto-night-t2160.webp 2160w" sizes="100vw">
+      <source type="image/avif" srcset="/img/porto-night-w1620.avif 1620w, /img/porto-night-w2520.avif 2520w, /img/porto-night-w3780.avif 3780w" sizes="100vw">
+      <img src="/img/porto-night-w1620.webp" srcset="/img/porto-night-w1620.webp 1620w, /img/porto-night-w2520.webp 2520w, /img/porto-night-w3780.webp 3780w" sizes="100vw" width="1620" height="1157" alt="" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <div class="topline">
+    <a class="brand paper" href="/" aria-label="Strandline">
+      <!-- The boot screen's mark: a bead of red sea glass in a loose ink ring. -->
+      <svg class="mark" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+        <path d="M60 14 C88 13 107 33 106 60 C105 86 86 106 58 105 C30 104 13 84 15 58 C17 34 34 16 63 15" fill="none" stroke="#2a2118" stroke-width="5" stroke-linecap="round"/>
+        <path d="M37 58 C36 42 48 33 62 34 C78 35 86 47 84 61 C82 76 70 84 56 82 C44 80 38 71 37 58Z" fill="#a8302a"/>
+        <path d="M44 70 C52 80 72 81 80 67 C78 79 68 85 56 83 C48 82 43 77 44 70Z" fill="#6e1b19"/>
+        <path d="M48 47 C52 41 59 39 64 40 C58 42 53 46 50 52Z" fill="#f4e3d6"/>
+      </svg>
+      <span>Strandline</span>
+    </a>
+    <nav class="lang paper" aria-label="Lingua / Language">
+      <a href="/" hreflang="it" data-set="it">Italiano</a>
+      <a href="/en/" hreflang="en" data-set="en" aria-current="page">English</a>
+    </nav>
+  </div>
+
+  <!-- The harbour behind is the game's own, at the visitor's hour (now.js); the tag says what that hour means on the shore. -->
+  <div class="say">
+    <p class="clock" data-clock-line hidden><span lang="it">Sono le <time data-clock></time>, al porto.</span><span lang="en">It is <time data-clock></time> at the harbour.</span></p>
+    <p class="hour">
+      <span class="dawn"><span lang="it">All'alba il mare ha lasciato una riva nuova.</span><span lang="en">At dawn the sea left a new shore.</span></span>
+      <span class="day"><span lang="it">La riva di stamattina è ancora lì, sotto la sabbia.</span><span lang="en">This morning's shore is still there, under the sand.</span></span>
+      <span class="golden"><span lang="it">C'è tempo fino alle nove, poi la marea copre la riva.</span><span lang="en">There is time until nine, then the tide covers the shore.</span></span>
+      <span class="night"><span lang="it">Ora la marea copre la riva. Alle quattro ne porta una nuova.</span><span lang="en">The tide covers the shore now. At four it brings a new one.</span></span>
+    </p>
+    <h1>
+      <span lang="it"><strong>Strandline</strong> è un gioco calmo per telefoni Android. Ogni mattina spazzoli una riva del Mediterraneo con un dito e trovi vetri di mare, cocci e conchiglie.</span>
+      <span lang="en"><strong>Strandline</strong> is a calm game for Android phones. Every morning you brush a Mediterranean shore with one finger and find sea glass, sherds and shells.</span>
+    </h1>
+    <div class="act">
+      <a class="way" data-play href="#" hidden><span lang="it">Entra nella prova</span><span lang="en">Join the test</span></a>
+      <p class="way" data-soon><span lang="it">Presto su Google Play</span><span lang="en">Soon on Google Play</span></p>
+      <a class="open-book" href="#taccuino"><span lang="it">Apri il taccuino</span><span lang="en">Open the journal</span></a>
+    </div>
+  </div>
+</header>
+
+<main class="desk" id="taccuino">
+  <h2 class="sr" id="h-taccuino"><span lang="it">Il taccuino</span><span lang="en">The journal</span></h2>
+  <div class="book">
+    <div class="leaves" data-leaves tabindex="0" role="region" aria-labelledby="h-taccuino">
+
+      <section class="page" aria-labelledby="h-strandline">
+        <p class="tav"><span lang="it">Taccuino di riva</span><span lang="en">Shore journal</span></p>
+        <h2 id="h-strandline" class="title">Strandline</h2>
+        <p class="subtitle"><span lang="it">Un gioco calmo per Android, disegnato a mano.</span><span lang="en">A calm game for Android, drawn by hand.</span></p>
+        <div class="entry">
+          <p lang="it">Ogni mattina il mare lascia una riva nuova. La spazzoli con un dito, piano, e sotto la sabbia compare quello che ha portato la notte.</p>
+          <p lang="en">Every morning the sea leaves a new shore. You brush it with one finger, slowly, and what the night brought shows under the sand.</p>
+          <p lang="it">Un tocco bagna il reperto e gli ridà il suo colore vero. Uno al giorno lo tieni qui, su una tavola tutta sua.</p>
+          <p lang="en">One tap wets a find and brings back its true colour. One a day you keep here, on a plate of its own.</p>
+          <p class="hand" lang="it">Nella Tav. I c'è un vetro sotto la sabbia. Provalo.</p>
+          <p class="hand" lang="en">Under the sand on Plate I there is a glass. Try it.</p>
+        </div>
+        <a class="way" data-play href="#" hidden><span lang="it">Entra nella prova</span><span lang="en">Join the test</span></a>
+        <p class="way" data-soon><span lang="it">Presto su Google Play</span><span lang="en">Soon on Google Play</span></p>
+      </section>
+
+      <section class="page" aria-labelledby="h-tav1">
+        <p class="tav" id="h-tav1"><span lang="it">Tav. I</span><span lang="en">Plate I</span></p>
+        <figure class="dig" data-dig>
+          <div class="bed">
+            <span class="ring" aria-hidden="true"></span>
+            <img class="find dry" src="/img/glass-dry.webp" width="338" height="426" alt="">
+            <img class="find wet" src="/img/glass-wet.webp" width="339" height="431" alt="">
+            <canvas aria-hidden="true"></canvas>
+          </div>
+          <p class="says" aria-hidden="true">
+            <span data-step="bury"><span lang="it">Qui sotto c'è qualcosa. Spazzola via la sabbia.</span><span lang="en">Something is under here. Brush the sand away.</span></span>
+            <span data-step="dry"><span lang="it">Eccolo. Toccalo per bagnarlo.</span><span lang="en">There. Tap it to wet it.</span></span>
+            <span data-step="wet"><span lang="it">Così, ogni mattina, una riva intera.</span><span lang="en">Like this, every morning, a whole shore.</span></span>
+          </p>
+          <button type="button" class="do" data-do>
+            <span data-step="bury"><span lang="it">Spazzola con un tocco</span><span lang="en">Brush it with a tap</span></span>
+            <span data-step="dry"><span lang="it">Bagnalo</span><span lang="en">Wet it</span></span>
+          </button>
+          <figcaption class="plate-name">
+            <h3><span lang="it">Vetro di mare, verde bottiglia</span><span lang="en">Sea glass, bottle green</span></h3>
+            <p class="hand"><span lang="it">Trovato oggi, sulla tua riva.</span><span lang="en">Found today, on your shore.</span></p>
+            <p><span lang="it">Bagnato torna al verde pieno della bottiglia; asciutto, si schiarisce e si spegne.</span><span lang="en">Wet, it returns to the bottle's full green; dry, it pales and dulls.</span></p>
+          </figcaption>
+          <p class="sr" aria-live="polite" data-say></p>
+        </figure>
+      </section>
+
+      <section class="page" aria-labelledby="h-mattina">
+        <h2 id="h-mattina"><span lang="it">Pochi minuti, ogni mattina</span><span lang="en">A few minutes, every morning</span></h2>
+        <figure class="pinned">
+          <img lang="it" src="/img/s-it-shore.webp" width="360" height="640" loading="lazy" decoding="async" alt="La riva appena arrivata nel gioco: il mare, una linea di alghe, il nome Strandline scritto nella sabbia umida.">
+          <img lang="en" src="/img/s-en-shore.webp" width="360" height="640" loading="lazy" decoding="async" alt="A new shore in the game: the sea, a line of seaweed, the name Strandline written in the damp sand.">
+        </figure>
+        <ol class="day">
+          <li><b><span lang="it">Spazzoli</span><span lang="en">Brush</span></b>
+            <span lang="it">Alle quattro del mattino arriva una riva nuova, con sei o nove reperti sotto la sabbia. Dopo una mareggiata possono essere dodici.</span>
+            <span lang="en">At four in the morning a new shore comes in, with six to nine finds under the sand. After a storm there can be twelve.</span></li>
+          <li><b><span lang="it">Bagni</span><span lang="en">Wet</span></b>
+            <span lang="it">Un tocco ridà al reperto il suo colore. Accanto si apre un cartellino che dice cos'è e racconta una cosa vera su di lui.</span>
+            <span lang="en">One tap brings back a find's colour. A paper tag opens beside it, says what it is and tells one true thing about it.</span></li>
+          <li><b><span lang="it">Tieni</span><span lang="en">Keep</span></b>
+            <span lang="it">Uno resta sulla tavola del giorno, nel taccuino. Gli altri li versi nel barattolo.</span>
+            <span lang="en">One stays on the day's plate in the journal. The rest you pour into the jar.</span></li>
+        </ol>
+        <p class="small" lang="it">Una riva dura quanto un caffè. Si gioca con una mano, anche senza internet; ogni trascinamento ha un'alternativa con un tocco.</p>
+        <p class="small" lang="en">A shore lasts about as long as a coffee. It plays with one hand, offline too; every drag has a tap alternative.</p>
+      </section>
+
+      <section class="page" aria-labelledby="h-reperti">
+        <p class="tav"><span lang="it">Tav. II</span><span lang="en">Plate II</span></p>
+        <h2 id="h-reperti"><span lang="it">77 cose da trovare</span><span lang="en">77 things to find</span></h2>
+        <p lang="it">Vetri levigati, conchiglie, cocci di piatti e d'anfore, perfino una bottiglia con un messaggio. Sono tutte cose del Mediterraneo, disegnate a inchiostro e acquerello.</p>
+        <p lang="en">Smoothed glass, shells, sherds of plates and amphorae, even a message in a bottle. All of them come from the Mediterranean, drawn in ink and watercolour.</p>
+        <ul class="loose">
+          <li><img src="/img/find-glass_bottle_green.webp" width="136" height="174" loading="lazy" decoding="async" alt=""><span lang="it">Vetro verde bottiglia</span><span lang="en">Bottle green glass</span></li>
+          <li><img src="/img/find-shell_murex.webp" width="306" height="221" loading="lazy" decoding="async" alt=""><span lang="it">Murice</span><span lang="en">Murex</span></li>
+          <li><img src="/img/find-pottery_maiolica.webp" width="224" height="268" loading="lazy" decoding="async" alt=""><span lang="it">Coccio di maiolica</span><span lang="en">Maiolica sherd</span></li>
+          <li><img src="/img/find-coral_red.webp" width="136" height="156" loading="lazy" decoding="async" alt=""><span lang="it">Corallo rosso</span><span lang="en">Red coral</span></li>
+          <li><img src="/img/find-glass_cobalt.webp" width="162" height="116" loading="lazy" decoding="async" alt=""><span lang="it">Vetro blu cobalto</span><span lang="en">Cobalt glass</span></li>
+          <li><img src="/img/find-shell_scallop.webp" width="271" height="280" loading="lazy" decoding="async" alt=""><span lang="it">Canestrello</span><span lang="en">Variegated scallop</span></li>
+          <li><img src="/img/find-egagropilo.webp" width="136" height="140" loading="lazy" decoding="async" alt=""><span lang="it">Egagropilo</span><span lang="en">Posidonia ball</span></li>
+          <li><img src="/img/find-glass_message.webp" width="250" height="181" loading="lazy" decoding="async" alt=""><span lang="it">Bottiglia con messaggio</span><span lang="en">Message in a bottle</span></li>
+          <li><img src="/img/find-shell_urchin.webp" width="194" height="204" loading="lazy" decoding="async" alt=""><span lang="it">Guscio di riccio</span><span lang="en">Sea urchin test</span></li>
+          <li><img src="/img/find-coin_worn.webp" width="186" height="182" loading="lazy" decoding="async" alt=""><span lang="it">Moneta consumata</span><span lang="en">Worn coin</span></li>
+          <li><img src="/img/find-sea_star.webp" width="159" height="176" loading="lazy" decoding="async" alt=""><span lang="it">Stella marina</span><span lang="en">Sea star</span></li>
+          <li><img src="/img/find-shell_cowrie.webp" width="240" height="205" loading="lazy" decoding="async" alt=""><span lang="it">Porcellana</span><span lang="en">Cowrie</span></li>
+        </ul>
+        <p class="hand more-finds"><span lang="it">Settantasette in tutto, ognuna con la sua tavola.</span><span lang="en">Seventy-seven in all, each with its own plate.</span></p>
+      </section>
+
+      <section class="page" aria-labelledby="h-barattolo">
+        <p class="tav"><span lang="it">Il barattolo</span><span lang="en">The jar</span></p>
+        <h2 id="h-barattolo"><span lang="it">Gli altri vanno nel barattolo</span><span lang="en">The rest go in the jar</span></h2>
+        <p lang="it">Ogni reperto che versi lascia uno schizzo a margine della pagina. In quattordici mattine il barattolo si riempie e diventa anche lui una tavola.</p>
+        <p lang="en">Each find you pour leaves a sketch in the page's margin. Over fourteen mornings the jar fills and becomes a plate of its own.</p>
+        <figure class="shot r">
+          <img src="/img/jar.webp" width="640" height="859" loading="lazy" decoding="async" lang="it" alt="Il barattolo da vicino: conchiglie rosa, un riccio viola, vetri blu e verdi, cocci di ceramica, sassi grigi con venature bianche.">
+          <img src="/img/jar.webp" width="640" height="859" loading="lazy" decoding="async" lang="en" alt="The jar up close: pink shells, a purple urchin, blue and green glass, pottery sherds, grey pebbles with white veins.">
+        </figure>
+        <svg class="tally" viewBox="0 0 130 34" aria-hidden="true" focusable="false">
+          <path d="M5.5 5.4 L6.5 30.4 M13.7 4.5 L14.7 29.6 M21.8 5.4 L21.7 29.9 M29.5 4.4 L31.2 28.9 M2.0 24.5 L35.0 9.6 M52.2 4.3 L52.2 29.7 M59.6 5.3 L58.9 28.8 M67.5 4.4 L69.4 29.0 M76.6 4.9 L76.3 30.2 M48.0 25.4 L81.0 8.2 M98.1 5.3 L97.0 28.2 M106.4 5.0 L105.1 29.1 M113.7 5.6 L114.0 28.3 M122.4 4.2 L121.3 28.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <p class="sr"><span lang="it">Quattordici tacche, quattordici mattine.</span><span lang="en">Fourteen tally marks, fourteen mornings.</span></p>
+        <p class="small" lang="it">Se salti un giorno, domattina c'è una riva nuova e il taccuino è dove l'hai lasciato. Quello che trovi resta tuo.</p>
+        <p class="small" lang="en">If you skip a day, there is a new shore tomorrow and the journal is where you left it. What you find stays yours.</p>
+      </section>
+
+      <section class="page" aria-labelledby="h-stanza">
+        <h2 id="h-stanza"><span lang="it">La stanza e il porto</span><span lang="en">The room and the harbour</span></h2>
+        <p lang="it">Tra una riva e l'altra c'è la tua stanza, con la finestra sul mare. Al muro arrivano dei biglietti: Giulia tiene un museo sul davanzale, Tonino ripara le reti al porto. Ognuno cerca qualcosa, e tu puoi prestarglielo.</p>
+        <p lang="en">Between shores there is your room, with its window on the sea. Notes arrive on its wall: Giulia keeps a museum on her windowsill, Tonino mends nets at the harbour. Each is looking for something, and you can lend it.</p>
+        <figure class="shot l">
+          <img src="/img/room.webp" width="640" height="1007" loading="lazy" decoding="async" lang="it" alt="La stanza: un muro chiaro con biglietti appesi, una finestra ad arco sul mare, sul davanzale il taccuino blu e il barattolo, sotto la vetrina dei reperti.">
+          <img src="/img/room.webp" width="640" height="1007" loading="lazy" decoding="async" lang="en" alt="The room: a pale wall with notes pinned on it, an arched window on the sea, the blue journal and the jar on the sill, the finds' glass case below.">
+        </figure>
+        <p class="hand" lang="it">Al porto la luce segue l'ora del giorno, come in cima a questa pagina.</p>
+        <p class="hand" lang="en">At the harbour the light follows the hour of the day, as at the top of this page.</p>
+      </section>
+
+      <section class="page" aria-labelledby="h-amici">
+        <h2 id="h-amici"><span lang="it">Per gli amici, e per il mare</span><span lang="en">For friends, and for the sea</span></h2>
+        <p lang="it">Un reperto lo puoi mandare a un'amica come cartolina, o regalarglielo. Le arriva un link che apre il gioco, e lo trova appeso al muro della sua stanza.</p>
+        <p lang="en">You can send a find to a friend as a postcard, or give it to them. They get a link that opens the game, and find it hanging on their room's wall.</p>
+        <p lang="it">Oppure lo chiudi in una bottiglia con una frase e la butti dal molo. Una mattina arriverà sulla riva di qualcuno che non conosci, e potrà risponderti una volta.</p>
+        <p lang="en">Or you cork it in a bottle with one sentence and throw it from the quay. Some morning it washes up on a stranger's shore, and they may answer you once.</p>
+        <figure class="shot l">
+          <img src="/img/postcard.webp" width="600" height="447" loading="lazy" decoding="async" lang="it" alt="Il fronte di una cartolina: un vetro di mare azzurro disegnato sulla sabbia, sotto una striscia di mare chiaro.">
+          <img src="/img/postcard.webp" width="600" height="447" loading="lazy" decoding="async" lang="en" alt="A postcard's front: a pale blue piece of sea glass drawn on the sand, under a strip of light sea.">
+        </figure>
+        <img class="bottle" src="/img/find-glass_message.webp" width="250" height="181" loading="lazy" decoding="async" alt="">
+        <p class="small" lang="it">Viaggiano solo reperti e frasi già scritte: il gioco non ha una chat e non chiede un account. <a href="/cartoline/">Hai ricevuto una cartolina?</a></p>
+        <p class="small" lang="en">Only finds and ready-written sentences travel: the game has no chat and asks for no account. <a href="/cartoline/">Got a postcard?</a></p>
+      </section>
+
+      <section class="page last" aria-labelledby="h-domattina">
+        <h2 id="h-domattina"><span lang="it">Domattina, sulla riva.</span><span lang="en">Tomorrow morning, on the shore.</span></h2>
+        <p lang="it">Dalle nove di sera la marea copre la riva. Alle quattro ne porta una nuova, con quello che ha trovato la notte.</p>
+        <p lang="en">From nine in the evening the tide covers the shore. At four it brings a new one, with what the night found.</p>
+        <div>
+          <a class="way" data-play href="#" hidden><span lang="it">Entra nella prova</span><span lang="en">Join the test</span></a>
+          <p class="way" data-soon><span lang="it">Presto su Google Play</span><span lang="en">Soon on Google Play</span></p>
+        </div>
+        <p class="small"><a href="#domande"><span lang="it">Domande sul gioco</span><span lang="en">Questions about the game</span></a></p>
+      </section>
+    </div>
+    <button class="turn turn-back" type="button" data-turn="-1" hidden>
+      <svg viewBox="0 0 76 76" aria-hidden="true" focusable="false">
+        <path class="cut" d="M72 14 C58 30 30 58 14 72 L72 72Z"/>
+        <path class="flap" d="M72 14 C58 30 30 58 14 72 C18 52 20 34 14 14 C34 18 54 20 72 14Z"/>
+        <path class="arrow" d="M30 40 C36 40 42 40 48 39 M42 32 C46 35 49 37 51 39 C48 42 45 44 42 47"/>
+      </svg>
+      <span class="sr"><span lang="it">Pagina precedente</span><span lang="en">Previous page</span></span>
+    </button>
+    <button class="turn turn-on" type="button" data-turn="1" hidden>
+      <svg viewBox="0 0 76 76" aria-hidden="true" focusable="false">
+        <path class="cut" d="M72 14 C58 30 30 58 14 72 L72 72Z"/>
+        <path class="flap" d="M72 14 C58 30 30 58 14 72 C18 52 20 34 14 14 C34 18 54 20 72 14Z"/>
+        <path class="arrow" d="M30 40 C36 40 42 40 48 39 M42 32 C46 35 49 37 51 39 C48 42 45 44 42 47"/>
+      </svg>
+      <span class="sr"><span lang="it">Pagina successiva</span><span lang="en">Next page</span></span>
+    </button>
+  </div>
+  <!-- Turning pages: the page's own corners and a row of beads; shown by site.js (without it the book still scrolls and swipes). -->
+  <div class="leafing" data-leafing hidden>
+    <div class="beads" data-beads role="group"><span class="sr"><span lang="it">Pagine del taccuino</span><span lang="en">Journal pages</span></span></div>
+    <output class="count" data-count aria-live="polite"></output>
+  </div>
+</main>
+
+<section class="faq" id="domande" aria-labelledby="h-domande">
+  <h2 id="h-domande"><span lang="it">Domande</span><span lang="en">Questions</span></h2>
+  <dl>
+    <div>
+      <dt><span lang="it">Che gioco è?</span><span lang="en">What kind of game is it?</span></dt>
+      <dd lang="it">Un gioco calmo per telefoni Android, disegnato a mano. Ogni mattina arriva una riva del Mediterraneo: spazzoli la sabbia con un dito, bagni quello che trovi per vederne il colore vero e ne tieni uno al giorno nel taccuino. Gli altri vanno nel barattolo, che si riempie in quattordici mattine. Nel gioco non si sbaglia e non si perde niente.</dd>
+      <dd lang="en">A calm, hand-drawn game for Android phones. Every morning a Mediterranean shore arrives: you brush the sand with one finger, wet what you find to see its true colour and keep one a day in the journal. The rest go in the jar, which fills over fourteen mornings. Nothing in the game can be failed or lost.</dd>
+    </div>
+    <div>
+      <dt><span lang="it">Quando esce?</span><span lang="en">When does it come out?</span></dt>
+      <dd lang="it">Strandline è in prova chiusa tra pochi amici e arriverà su Google Play per telefoni Android. Il giorno in cui esce, il link sarà qui.</dd>
+      <dd lang="en">Strandline is in a closed test among a few friends and will come to Google Play for Android phones. The day it is out, the link will be here.</dd>
+    </div>
+    <div>
+      <dt><span lang="it">Su quali telefoni?</span><span lang="en">Which phones?</span></dt>
+      <dd lang="it">Android 7.0 o più recente. Per ora non c'è una versione per iPhone.</dd>
+      <dd lang="en">Android 7.0 or later. There is no iPhone version for now.</dd>
+    </div>
+    <div>
+      <dt><span lang="it">Costa qualcosa?</span><span lang="en">Does it cost anything?</span></dt>
+      <dd lang="it">Si installa senza pagare. Dall'ottava mattina può comparire una pubblicità al giorno, quando chiudi il taccuino, mai mentre spazzoli o bagni un reperto. Con «Sostieni il gioco», un acquisto unico, le pubblicità spariscono per sempre.</dd>
+      <dd lang="en">It installs without paying. From the eighth morning an ad may appear once a day, when you close the journal, never while you brush or wet a find. "Support the game", a one-time purchase, removes ads for good.</dd>
+    </div>
+    <div>
+      <dt><span lang="it">Serve internet?</span><span lang="en">Does it need the internet?</span></dt>
+      <dd lang="it">Si gioca anche senza. La connessione serve per le cartoline e i regali agli amici, per le bottiglie e per la pubblicità.</dd>
+      <dd lang="en">It plays offline. The connection is for postcards and gifts to friends, for bottles and for ads.</dd>
+    </div>
+    <div>
+      <dt><span lang="it">In che lingue?</span><span lang="en">Which languages?</span></dt>
+      <dd lang="it">Italiano e inglese.</dd>
+      <dd lang="en">English and Italian.</dd>
+    </div>
+    <div>
+      <dt><span lang="it">E i miei dati?</span><span lang="en">And my data?</span></dt>
+      <dd lang="it">Il gioco salva sul telefono. Cosa passa per internet, e perché, è scritto nell'<a href="/privacy/">informativa sulla privacy</a>.</dd>
+      <dd lang="en">The game saves on the phone. What goes over the internet, and why, is in the <a href="/privacy/">privacy policy</a>.</dd>
+    </div>
+  </dl>
+</section>
+
+<footer>
+  <p class="links">
+    <a href="/privacy/"><span lang="it">Informativa sulla privacy</span><span lang="en">Privacy policy</span></a>
+    <a href="/cartoline/"><span lang="it">Cartoline</span><span lang="en">Postcards</span></a>
+    <a href="#top"><span lang="it">Torna al porto</span><span lang="en">Back to the harbour</span></a>
+  </p>
+  <p><span lang="it">Questa pagina non usa cookie e non manda niente a nessuno: ricorda solo la lingua che scegli, nel tuo browser. L'ora del porto è quella del tuo telefono.</span><span lang="en">This page uses no cookies and sends nothing to anyone: it only remembers the language you pick, in your browser. The harbour's hour is your own device's.</span></p>
+  <p class="fonts"><span lang="it">Caratteri:</span><span lang="en">Typefaces:</span> Literata (<a href="/fonts/OFL-Literata.txt">SIL OFL 1.1</a>), Atkinson Hyperlegible Next (<a href="/fonts/OFL-AtkinsonHyperlegibleNext.txt">SIL OFL 1.1</a>).</p>
+</footer>
+
+<script src="/site.js"></script>
+</body>
+</html>

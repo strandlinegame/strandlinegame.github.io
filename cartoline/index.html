@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Nothing leaves this page: no requests, no cookies, no analytics; only the chosen language is kept in the browser. The card's code is after '#', which the browser
+     never sends to the server; this script only reads it to build the button and the text to copy. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>Una cartolina dal mare</title>
+<style>
+  :root {
+    --paper: #eee7d6; --card: #f7f5ee; --ink: #2a2118; --ink-soft: #514538; --veiled: #8c7d69;
+    --sea: #9cc5cc; --sea-deep: #458a9a; --sand: #ead3a2; --note: #27604f; --terra: #a4593f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1f2a2e; --card: #2a3438; --ink: #efe8d8; --ink-soft: #cfc4ae; --veiled: #a3967f;
+      --sea: #4d7f8a; --sea-deep: #9cc5cc; --sand: #8a7650; --note: #7fbfa8; --terra: #e0a184;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 18px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Noto Serif", serif;
+  }
+  main { max-width: 34rem; margin: 0 auto; padding: 28px 16px 48px; }
+  .lang { text-align: right; font-size: 15px; color: var(--ink-soft); margin: 0 0 8px; }
+  .lang button { font: inherit; color: inherit; background: none; border: 0; padding: 4px 2px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  .lang button[aria-pressed="true"] { text-decoration: none; font-weight: 600; color: var(--ink); }
+  h1 { font-weight: 500; font-style: italic; font-size: 30px; line-height: 1.2; margin: 6px 0 18px; }
+  p { margin: 0 0 14px; }
+  .soft { color: var(--ink-soft); }
+  svg.card { display: block; width: 100%; height: auto; margin: 4px 0 22px; }
+  .open {
+    display: block; width: 100%; text-align: center; text-decoration: none; font: inherit; font-size: 19px;
+    background: var(--note); color: #f7f5ee; border: 0; padding: 15px 18px; margin: 6px 0 10px; cursor: pointer;
+    border-radius: 3px 6px 4px 7px; box-shadow: 2px 3px 0 rgba(42, 33, 24, .22);
+  }
+  .plain {
+    font: inherit; font-size: 17px; background: var(--card); color: var(--ink); border: 1.5px solid var(--ink-soft);
+    padding: 10px 16px; cursor: pointer; border-radius: 6px 3px 7px 4px;
+  }
+  .code {
+    background: var(--card); border: 1.5px dashed var(--veiled); padding: 12px 14px; margin: 10px 0;
+    font-family: ui-monospace, "DejaVu Sans Mono", Menlo, monospace; font-size: 15px; letter-spacing: .04em; word-spacing: .3em;
+    overflow-wrap: anywhere; user-select: all; -webkit-user-select: all;
+  }
+  section { border-top: 1px solid rgba(81, 69, 56, .25); margin-top: 26px; padding-top: 18px; }
+  h2 { font-size: 20px; font-weight: 600; margin: 0 0 10px; }
+  ol { padding-left: 1.3em; margin: 0 0 14px; }
+  li { margin: 0 0 8px; }
+  a { color: var(--note); text-underline-offset: 3px; }
+  footer { margin-top: 34px; font-size: 14px; color: var(--veiled); }
+  [hidden] { display: none !important; }
+  html[data-lang="it"] [lang="en"], html[data-lang="en"] [lang="it"] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <p class="lang"><button type="button" data-set="it" aria-pressed="true">Italiano</button> · <button type="button" data-set="en" aria-pressed="false">English</button></p>
+
+  <h1><span lang="it">Una cartolina dal mare</span><span lang="en">A postcard from the sea</span></h1>
+
+  <svg class="card" viewBox="0 0 320 210" role="img" aria-hidden="true">
+    <path d="M14 18 Q90 11 160 15 T306 14 Q311 70 307 110 T309 196 Q220 201 160 197 T12 199 Q8 140 12 100 T14 18Z" fill="#00000018" transform="translate(4 5)"/>
+    <path d="M14 18 Q90 11 160 15 T306 14 Q311 70 307 110 T309 196 Q220 201 160 197 T12 199 Q8 140 12 100 T14 18Z" fill="var(--card)" stroke="var(--ink-soft)" stroke-width="1.4"/>
+    <path d="M30 34 L292 31 L294 112 Q230 104 160 110 T28 108Z" fill="var(--sea)"/>
+    <path d="M28 108 Q90 101 160 108 T294 110 L293 182 L29 184Z" fill="var(--sand)"/>
+    <path d="M28 108 Q70 100 110 106 T190 104 T294 109" fill="none" stroke="#f7f5ee" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+    <g transform="translate(160 150)" stroke="var(--ink)" stroke-width="1.3" fill="none" stroke-linecap="round">
+      <path d="M-26 6 Q-28 -22 0 -26 Q28 -22 26 6 Q14 14 0 13 Q-14 14 -26 6Z" fill="#f2e6d6"/>
+      <path d="M0 13 L0 -25 M-8 12 L-15 -21 M8 12 L15 -21 M-16 10 L-24 -10 M16 10 L24 -10"/>
+      <path d="M-7 13 L-9 20 L9 20 L7 13"/>
+    </g>
+    <path d="M30 34 L292 31 L294 112 L293 182 L29 184Z" fill="none" stroke="var(--ink-soft)" stroke-width="1" opacity=".5"/>
+  </svg>
+
+  <!-- With a code: open it in the game, or copy it. -->
+  <div id="with-code" hidden>
+    <p lang="it">Qualcuno ti ha mandato una cartolina da <em>Strandline</em>, un piccolo gioco di spiaggia: si spazzola la sabbia e si trovano cose portate dal mare.</p>
+    <p lang="en">Someone sent you a postcard from <em>Strandline</em>, a small beach game: you brush the sand and find what the sea brought in.</p>
+    <a id="open" class="open" href="#" hidden><span lang="it">Apri nel gioco</span><span lang="en">Open in the game</span></a>
+    <p id="not-android" class="soft" hidden><span lang="it">Il gioco è per telefoni Android. Apri questo link da lì.</span><span lang="en">The game is for Android phones. Open this link there.</span></p>
+    <p class="soft"><span lang="it">Il codice della cartolina, se serve incollarlo a mano:</span><span lang="en">The postcard's code, in case you need to paste it by hand:</span></p>
+    <div id="code" class="code"></div>
+    <button id="copy" class="plain" type="button"><span lang="it">Copia il codice</span><span lang="en">Copy the code</span></button>
+    <span id="copied" class="soft" hidden> <span lang="it">Copiato.</span><span lang="en">Copied.</span></span>
+  </div>
+
+  <!-- Without a code: just what this page is. -->
+  <div id="no-code" hidden>
+    <p lang="it">Questa pagina apre le cartoline di <em>Strandline</em>, un piccolo gioco di spiaggia. Qui non c'è nessuna cartolina: forse il link si è spezzato per strada. Chiedi di mandarlo di nuovo.</p>
+    <p lang="en">This page opens postcards from <em>Strandline</em>, a small beach game. There is no postcard here: maybe the link got cut on the way. Ask for it to be sent again.</p>
+  </div>
+
+  <section id="get">
+    <h2><span lang="it">Non hai ancora il gioco?</span><span lang="en">Don't have the game yet?</span></h2>
+    <ol>
+      <li><span lang="it">Scaricalo:</span><span lang="en">Get it:</span>
+        <a id="play" href="#" hidden><span lang="it">Strandline su Google Play (prova)</span><span lang="en">Strandline on Google Play (testing)</span></a>
+        <span id="ask" class="soft"><span lang="it">chiedi il link per scaricarlo a chi ti ha mandato la cartolina.</span><span lang="en">ask whoever sent you the postcard for the download link.</span></span>
+      </li>
+      <li><span lang="it">Apri il gioco una volta e gioca la prima mattina sulla riva.</span><span lang="en">Open the game once and play the first morning on the shore.</span></li>
+      <li><span lang="it">Poi torna qui e tocca <strong>Apri nel gioco</strong>: la cartolina ti aspetta sul muro della stanza.</span><span lang="en">Then come back here and tap <strong>Open in the game</strong>: the postcard waits on your room's wall.</span></li>
+    </ol>
+  </section>
+
+  <footer>
+    <p><span lang="it">Questa pagina non manda niente a nessuno e ricorda solo la lingua che scegli: il codice resta nel tuo telefono.</span><span lang="en">This page sends nothing to anyone and only remembers the language you pick: the code stays on your phone.</span>
+      <a href="../privacy/"><span lang="it">Privacy</span><span lang="en">Privacy</span></a></p>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  // The one place the store link goes once internal testing exists (Play Console, Testing, Internal testing, "Copy link").
+  var PLAY_TESTING_URL = "";
+  var PACKAGE = "com.jertlok.strandline";
+  var root = document.documentElement;
+
+  function setLang(l) {
+    root.setAttribute("data-lang", l);
+    root.lang = l;
+    document.title = l === "it" ? "Una cartolina dal mare" : "A postcard from the sea";
+    var bs = document.querySelectorAll(".lang button");
+    for (var i = 0; i < bs.length; i++) bs[i].setAttribute("aria-pressed", String(bs[i].getAttribute("data-set") === l));
+  }
+  // The visitor's own choice (made here or on the landing, kept in this browser) wins; else the browser's first language
+  // (it: Italian, anything else: English); Italian when it says nothing.
+  var KEY = "strandline-lang", chosen = "";
+  try { chosen = localStorage.getItem(KEY) || ""; } catch (e) {}
+  if (chosen !== "it" && chosen !== "en") {
+    var first = (navigator.languages || []).concat([navigator.language]).filter(Boolean)[0] || "";
+    chosen = first ? (first.toLowerCase().indexOf("it") === 0 ? "it" : "en") : "it";
+  }
+  setLang(chosen);
+  document.querySelector(".lang").addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-set]");
+    if (!b) return;
+    setLang(b.getAttribute("data-set"));
+    try { localStorage.setItem(KEY, b.getAttribute("data-set")); } catch (err) {}
+  });
+
+  // The card's code: only the characters a code has, and not too long. Anything else is "no card".
+  var raw = decodeURIComponent(location.hash.replace(/^#/, "")).replace(/[\s-]/g, "");
+  var code = /^[0-9A-Za-z]{8,400}$/.test(raw) ? raw.toUpperCase() : "";
+
+  if (PLAY_TESTING_URL) {
+    var play = document.getElementById("play");
+    play.href = PLAY_TESTING_URL;
+    play.hidden = false;
+    document.getElementById("ask").hidden = true;
+  }
+
+  if (!code) {
+    document.getElementById("no-code").hidden = false;
+    return;
+  }
+  document.getElementById("with-code").hidden = false;
+  document.getElementById("code").textContent = code.replace(/(.{4})/g, "$1 ").trim();
+
+  var base = location.host + location.pathname.replace(/[^/]*$/, "");
+  if (/Android/i.test(navigator.userAgent)) {
+    // An intent:// link has no room for a fragment, so the code goes in the path (c/<code>): Chrome hands it to the game
+    // directly, with no request. Not installed: back to this page, its install steps first ("?get" is all the server sees).
+    var fallback = "https://" + base + "?get#" + code;
+    var open = document.getElementById("open");
+    open.href = "intent://" + base + "c/" + code + "#Intent;scheme=https;package=" + PACKAGE +
+      ";S.browser_fallback_url=" + encodeURIComponent(fallback) + ";end";
+    open.hidden = false;
+  } else {
+    document.getElementById("not-android").hidden = false;
+  }
+  if (location.search === "?get") document.getElementById("get").scrollIntoView();
+
+  document.getElementById("copy").addEventListener("click", function () {
+    var shown = function () { document.getElementById("copied").hidden = false; };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(shown, function () {});
+    } else {
+      var r = document.createRange();
+      r.selectNodeContents(document.getElementById("code"));
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(r);
+      if (document.execCommand && document.execCommand("copy")) shown();
+    }
+  });
+})();
+</script>
+</body>
+</html>

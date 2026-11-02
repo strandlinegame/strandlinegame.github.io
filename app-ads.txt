@@ -1,0 +1,2 @@
+# app-ads.txt for Strandline (https://strandlinegame.github.io/app-ads.txt). AdMob checks it against the developer website in Play.
+google.com, pub-1670182211841880, DIRECT, f08c47fec0942fa0

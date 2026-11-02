@@ -1,0 +1,21 @@
+# Strandline
+
+> Strandline is a calm, hand-drawn beachcombing game for Android phones (Android 7.0 or later), in Italian and English. Every morning a new Mediterranean shore arrives; the player brushes the sand away with one finger, wets each find (sea glass, shells, pottery sherds, coins, a message in a bottle) to see its true colour and read a paper tag about it, keeps one find a day in a field journal and pours the rest into a jar that fills over fourteen mornings. It is in a closed test and coming soon to Google Play.
+
+Facts, as of November 2026:
+
+- Platform: Android phones only, Android 7.0 or later. No iPhone version.
+- Status: closed test among friends; not yet public on Google Play. The Play link will appear on the landing page on launch day.
+- Languages: Italian and English.
+- Play: one shore a day, a few minutes long. A new shore arrives at 04:00 local time and the tide covers it from 21:00, but a started shore can always be finished. 6 to 9 finds per shore, up to 12 after a storm. 77 kinds of finds, all from the Mediterranean, drawn in ink and watercolour.
+- Between shores: the player's room with a window on the sea; two correspondents, Giulia and Tonino, ask for finds the player can lend; a harbour whose light follows the hour, with a crate for the jar once a week.
+- Friends: finds travel as postcards or gifts by link, and as bottles thrown from the quay that wash up on a stranger's shore (one answer allowed). Only finds and ready-written sentences are shared; there is no chat and no account.
+- Nothing can be failed or lost. Plays offline; every drag has a tap alternative; motion can be reduced.
+- Price: installs without paying. From the eighth morning at most one ad a day, when the journal is closed; a one-time purchase, "Support the game", removes ads.
+
+## Pages
+
+- [Strandline (Italian)](https://strandlinegame.github.io/): the game's page
+- [Strandline (English)](https://strandlinegame.github.io/en/): the game's page in English
+- [Privacy policy](https://strandlinegame.github.io/privacy/): what the game sends over the internet and why (Italian and English)
+- [Postcards](https://strandlinegame.github.io/cartoline/): how a postcard link opens the game

@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.jertlok.strandline",
+      "sha256_cert_fingerprints": ["90:90:DB:98:6D:16:0B:74:00:82:FF:93:77:1B:28:72:FF:C0:38:D8:66:C0:C4:9A:00:BB:4C:4A:05:E3:3E:61", "C0:3C:70:C1:06:54:3E:60:3B:A6:76:D9:BB:94:9D:24:CC:5A:9A:37:48:15:E4:3E:E8:43:AA:7B:8B:55:68:4C"]
+    }
+  }
+]
